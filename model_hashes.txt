@@ -1,0 +1,8 @@
+﻿
+Hash                                                             Path                                 
+----                                                             ----                                 
+B347DAE8CA40D8795B0CEB63A9B2F08306672586AA9DFB7AA1E2474F08EAC4FC C:\Users\kminh\qwen3-1.7b-f16.gguf   
+93E158C7EB685F1D2FB38884642F90753CDBE93BD83AC7B682D3E02C109E5326 C:\Users\kminh\qwen3-1.7b-q4_k_m.gguf
+65BB9528644297A1E7CE8E749C866A6003E924739339C2BCFF1FB7B10B6D96B3 C:\Users\kminh\qwen3-1.7b-q8_0.gguf  
+
+

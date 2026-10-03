@@ -18,7 +18,7 @@ import requests
 
 from agent import AgentConfig, run_oracle, run_task
 from evaluate import evaluate
-from tasks import build_tasks
+from tasks import TASK_VERSION, build_tasks, check_tasks
 
 
 def precision_label(path):
@@ -52,10 +52,13 @@ class RamMonitor(threading.Thread):
 
 def start_server(a, model, label, out):
     cmd = [a.server, "-m", model, "--jinja", "-c", str(a.ctx), "--port", str(a.port), "-np", "1"]
-    if not a.mmap:
-        cmd.append("--no-mmap")
+    lm = getattr(a, "load_mode", None) or ("auto" if a.mmap else None)
+    if lm:  # b11338+: --load-mode none = no mmap (weights fully read into RAM)
+        cmd += ["--load-mode", lm]
     if a.threads:
         cmd += ["-t", str(a.threads)]
+    if getattr(a, "ngl", None) is not None:
+        cmd += ["-ngl", str(a.ngl)]
     log = open(out / f"server_{label}.log", "w", encoding="utf-8")
     t0 = time.time()
     proc = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
@@ -80,7 +83,7 @@ def main():
     ap.add_argument("--models", nargs="*", default=[])
     ap.add_argument("--server", default=r"..\llama-bin\llama-server.exe")
     ap.add_argument("--oracle", action="store_true", help="replay gold trajectories (no server)")
-    ap.add_argument("--lang", default="ko", choices=["ko", "en"])
+    ap.add_argument("--lang", default="en", choices=["ko", "en"])
     ap.add_argument("--repeats", type=int, default=1)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--temperature", type=float, default=0.7)
@@ -91,7 +94,10 @@ def main():
     ap.add_argument("--ctx", type=int, default=8192)
     ap.add_argument("--threads", type=int, default=0)
     ap.add_argument("--port", type=int, default=8080)
-    ap.add_argument("--mmap", action="store_true", help="allow mmap (default: --no-mmap for honest RAM)")
+    ap.add_argument("--ngl", type=int, default=None, help="GPU layers, e.g. 99 with the Vulkan build")
+    ap.add_argument("--mmap", action="store_true", help="same as --load-mode auto (mmap)")
+    ap.add_argument("--load-mode", default=None, choices=["auto", "none", "mmap", "mlock"],
+                    help="llama.cpp model loading; 'none' disables mmap for honest peak-RAM numbers")
     ap.add_argument("--out", default="results")
     a = ap.parse_args()
 
@@ -99,15 +105,19 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     runs_path, meta_path = out / "runs.jsonl", out / "model_meta.json"
 
-    tasks = [t for t in build_tasks(a.lang) if t["horizon"] in a.horizons]
+    all_tasks = build_tasks(a.lang)
+    check_tasks(all_tasks)
+    tasks = [t for t in all_tasks if t["horizon"] in a.horizons]
     if a.limit:
-        mixed = sorted(tasks, key=lambda t: (t["id"].rsplit("-", 1)[1], t["domain"]))  # spread over domains
+        mixed = sorted(tasks, key=lambda t: (int(t["id"].rsplit("-", 1)[1]), t["domain"]))  # spread over domains
         tasks = [t for h in a.horizons for t in [x for x in mixed if x["horizon"] == h][:a.limit]]
 
     done = set()
     if runs_path.exists():
         for line in runs_path.open(encoding="utf-8"):
             r = json.loads(line)
+            if r.get("task_version", "v1") != TASK_VERSION:
+                raise SystemExit(f"{runs_path} has {r.get('task_version', 'v1')} results; use a new --out folder")
             done.add((r["model"], r["lang"], r["think"], r["task_id"], r["repeat"]))
     meta = json.loads(meta_path.read_text(encoding="utf-8")) if meta_path.exists() else {}
 
@@ -143,7 +153,8 @@ def main():
                     m = evaluate(t, rec)
                     pn = sum(x.get("predicted_n") or 0 for x in rec["turns"])
                     pms = sum(x.get("predicted_ms") or 0 for x in rec["turns"])
-                    row = {"model": label, "model_path": model, "lang": a.lang, "think": a.think,
+                    row = {"task_version": TASK_VERSION, "model": label, "model_path": model,
+                           "lang": a.lang, "think": a.think,
                            "task_id": t["id"], "domain": t["domain"], "horizon": t["horizon"], "repeat": rep,
                            "seed": a.seed + rep, "temperature": a.temperature, "wall_s": wall,
                            "n_turns": len(rec["turns"]),
@@ -167,7 +178,7 @@ def main():
                 log.close()
                 meta[label] = {"path": model, "size_mb": os.path.getsize(model) / 2**20,
                                "load_time_s": load_s, "peak_rss_mb": mon.peak / 2**20,
-                               "mmap": a.mmap, "ctx": a.ctx}
+                               "load_mode": a.load_mode or ("auto" if a.mmap else "default"), "ctx": a.ctx}
                 meta_path.write_text(json.dumps(meta, indent=2), encoding="utf-8")
                 print(f"[{label}] peak RAM {meta[label]['peak_rss_mb']:.0f} MB")
 
