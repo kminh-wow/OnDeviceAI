@@ -1,0 +1,23 @@
+{
+  "started_kst": "20261017_010400",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "models": [
+    {
+      "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16.gguf",
+      "sha256": "f116fb8bb3237b7ee6acb2ea5058f4459ec6eb83f9bdbc890035935d45086a72",
+      "size_bytes": 4069679200
+    },
+    {
+      "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16-Q8_0.gguf",
+      "sha256": "9860780f3a1fab1f8f909a1b549ea3e62c22d19ab1a492b3a1026b38c5bd3ec3",
+      "size_bytes": 2165039200
+    },
+    {
+      "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16-Q4_K_M.gguf",
+      "sha256": "a7f6720f68f4a4567ebf7e3257041dd0b72077b518efe56890aec3516b59b9de",
+      "size_bytes": 1282439264
+    }
+  ],
+  "git_commit": "7043a14c55f0810f6f4bd004d18b82e0156db6d8",
+  "gpu": "name, memory.total [MiB], driver_version\nNVIDIA GeForce RTX 3080, 10240 MiB, 595.95"
+}

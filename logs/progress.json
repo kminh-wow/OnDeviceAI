@@ -1,0 +1,98 @@
+[
+  {
+    "label": "self-FP16",
+    "condition": "free",
+    "n": 180,
+    "success": 42,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-FP16_free.jsonl"
+  },
+  {
+    "label": "self-FP16",
+    "condition": "normal_restart",
+    "n": 120,
+    "success": 35,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-FP16_normal_restart.jsonl"
+  },
+  {
+    "label": "self-FP16",
+    "condition": "error_restart",
+    "n": 240,
+    "success": 34,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-FP16_error_restart.jsonl"
+  },
+  {
+    "label": "self-FP16",
+    "condition": "signaled_error_restart",
+    "n": 240,
+    "success": 10,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-FP16_signaled_error_restart.jsonl"
+  },
+  {
+    "label": "self-Q8",
+    "condition": "free",
+    "n": 180,
+    "success": 40,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q8_free.jsonl"
+  },
+  {
+    "label": "self-Q8",
+    "condition": "normal_restart",
+    "n": 120,
+    "success": 38,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q8_normal_restart.jsonl"
+  },
+  {
+    "label": "self-Q8",
+    "condition": "error_restart",
+    "n": 240,
+    "success": 30,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q8_error_restart.jsonl"
+  },
+  {
+    "label": "self-Q8",
+    "condition": "signaled_error_restart",
+    "n": 240,
+    "success": 6,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q8_signaled_error_restart.jsonl"
+  },
+  {
+    "label": "self-Q4",
+    "condition": "free",
+    "n": 180,
+    "success": 28,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q4_free.jsonl"
+  },
+  {
+    "label": "self-Q4",
+    "condition": "normal_restart",
+    "n": 120,
+    "success": 33,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q4_normal_restart.jsonl"
+  },
+  {
+    "label": "self-Q4",
+    "condition": "error_restart",
+    "n": 240,
+    "success": 52,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q4_error_restart.jsonl"
+  },
+  {
+    "label": "self-Q4",
+    "condition": "signaled_error_restart",
+    "n": 240,
+    "success": 49,
+    "invalid": 0,
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\results\\validation_20261017_010400\\main\\self-Q4_signaled_error_restart.jsonl"
+  }
+]

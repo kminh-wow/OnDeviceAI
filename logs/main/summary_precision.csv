@@ -1,0 +1,27 @@
+﻿protocol_version,condition,horizon,reference_label,model_label,n_paired,reference_success_rate,model_success_rate,success_difference,difference_ci95,only_reference_succeeded,only_model_succeeded,mcnemar_exact_p,mcnemar_holm_p
+execution-v4-provided-context,free,1,self-FP16,self-Q4,60,0.3667,0.1333,-0.2333,"[-0.35, -0.116667]",16,2,0.001312,0.030176
+execution-v4-provided-context,free,1,self-FP16,self-Q8,60,0.3667,0.35,-0.0167,"[-0.083333, 0.033333]",2,1,1.0,1.0
+execution-v4-provided-context,free,3,self-FP16,self-Q4,60,0.1667,0.1833,0.0167,"[-0.083333, 0.116667]",4,5,1.0,1.0
+execution-v4-provided-context,free,3,self-FP16,self-Q8,60,0.1667,0.1667,0.0,"[-0.05, 0.05]",1,1,1.0,1.0
+execution-v4-provided-context,free,5,self-FP16,self-Q4,60,0.1667,0.15,-0.0167,"[-0.1, 0.066667]",4,3,1.0,1.0
+execution-v4-provided-context,free,5,self-FP16,self-Q8,60,0.1667,0.15,-0.0167,"[-0.05, 0.0]",1,0,1.0,1.0
+wrong-saved-result-v5,error_restart:violating_candidate,1,self-FP16,self-Q4,60,0.2667,0.5167,0.25,"[0.116667, 0.383333]",2,17,0.000729,0.017496
+wrong-saved-result-v5,error_restart:violating_candidate,1,self-FP16,self-Q8,60,0.2667,0.2667,0.0,"[-0.066667, 0.066667]",2,2,1.0,1.0
+wrong-saved-result-v5,error_restart:violating_candidate,3,self-FP16,self-Q4,60,0.0,0.0,0.0,"[0.0, 0.0]",0,0,1.0,1.0
+wrong-saved-result-v5,error_restart:violating_candidate,3,self-FP16,self-Q8,60,0.0,0.0,0.0,"[0.0, 0.0]",0,0,1.0,1.0
+wrong-saved-result-v5,error_restart:wrong_option,1,self-FP16,self-Q4,60,0.3,0.35,0.05,"[-0.1, 0.2]",9,12,0.663624,1.0
+wrong-saved-result-v5,error_restart:wrong_option,1,self-FP16,self-Q8,60,0.3,0.2333,-0.0667,"[-0.15, 0.016667]",6,2,0.289062,1.0
+wrong-saved-result-v5,error_restart:wrong_option,3,self-FP16,self-Q4,60,0.0,0.0,0.0,"[0.0, 0.0]",0,0,1.0,1.0
+wrong-saved-result-v5,error_restart:wrong_option,3,self-FP16,self-Q8,60,0.0,0.0,0.0,"[0.0, 0.0]",0,0,1.0,1.0
+wrong-saved-result-v5,normal_restart,1,self-FP16,self-Q4,60,0.4167,0.35,-0.0667,"[-0.216667, 0.066667]",12,8,0.503445,1.0
+wrong-saved-result-v5,normal_restart,1,self-FP16,self-Q8,60,0.4167,0.4833,0.0667,"[-0.016667, 0.15]",1,5,0.21875,1.0
+wrong-saved-result-v5,normal_restart,3,self-FP16,self-Q4,60,0.1667,0.2,0.0333,"[-0.05, 0.116667]",3,5,0.726562,1.0
+wrong-saved-result-v5,normal_restart,3,self-FP16,self-Q8,60,0.1667,0.15,-0.0167,"[-0.05, 0.0]",1,0,1.0,1.0
+wrong-saved-result-v5,signaled_error_restart:violating_candidate,1,self-FP16,self-Q4,60,0.1167,0.4333,0.3167,"[0.183333, 0.45]",2,21,6.6e-05,0.001716
+wrong-saved-result-v5,signaled_error_restart:violating_candidate,1,self-FP16,self-Q8,60,0.1167,0.05,-0.0667,"[-0.133333, -0.016667]",4,0,0.125,1.0
+wrong-saved-result-v5,signaled_error_restart:violating_candidate,3,self-FP16,self-Q4,60,0.0167,0.0,-0.0167,"[-0.05, 0.0]",1,0,1.0,1.0
+wrong-saved-result-v5,signaled_error_restart:violating_candidate,3,self-FP16,self-Q8,60,0.0167,0.0,-0.0167,"[-0.05, 0.0]",1,0,1.0,1.0
+wrong-saved-result-v5,signaled_error_restart:wrong_option,1,self-FP16,self-Q4,60,0.0333,0.3167,0.2833,"[0.15, 0.416667]",2,19,0.000221,0.005525
+wrong-saved-result-v5,signaled_error_restart:wrong_option,1,self-FP16,self-Q8,60,0.0333,0.0167,-0.0167,"[-0.083333, 0.033333]",2,1,1.0,1.0
+wrong-saved-result-v5,signaled_error_restart:wrong_option,3,self-FP16,self-Q4,60,0.0,0.0667,0.0667,"[0.016667, 0.133333]",0,4,0.125,1.0
+wrong-saved-result-v5,signaled_error_restart:wrong_option,3,self-FP16,self-Q8,60,0.0,0.0333,0.0333,"[0.0, 0.083333]",0,2,0.5,1.0

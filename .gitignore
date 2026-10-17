@@ -7,7 +7,7 @@ models/*
 !models/manifest.json
 *.gguf
 
-logs/
+logs/matplotlib_cache/
 results/
 results/*.json
 .env

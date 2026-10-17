@@ -1,0 +1,17 @@
+﻿protocol_version,horizon,error_condition,reference_label,model_label,n_paired,reference_recovery_penalty,model_recovery_penalty,penalty_difference,difference_ci95,sign_flip_p,sign_flip_holm_p
+wrong-saved-result-v5,1,error_restart:violating_candidate,self-FP16,self-Q4,60,0.15,-0.1667,-0.3167,"[-0.5, -0.15]",0.001251,0.018765
+wrong-saved-result-v5,1,error_restart:violating_candidate,self-FP16,self-Q8,60,0.15,0.2167,0.0667,"[-0.016667, 0.15]",0.21875,1.0
+wrong-saved-result-v5,1,error_restart:wrong_option,self-FP16,self-Q4,60,0.1167,0.0,-0.1167,"[-0.3, 0.05]",0.283102,1.0
+wrong-saved-result-v5,1,error_restart:wrong_option,self-FP16,self-Q8,60,0.1167,0.25,0.1333,"[0.033333, 0.233333]",0.038574,0.462888
+wrong-saved-result-v5,1,signaled_error_restart:violating_candidate,self-FP16,self-Q4,60,0.3,-0.0833,-0.3833,"[-0.583333, -0.2]",0.000751,0.012016
+wrong-saved-result-v5,1,signaled_error_restart:violating_candidate,self-FP16,self-Q8,60,0.3,0.4333,0.1333,"[0.033333, 0.233333]",0.021484,0.279292
+wrong-saved-result-v5,1,signaled_error_restart:wrong_option,self-FP16,self-Q4,60,0.3833,0.0333,-0.35,"[-0.55, -0.15]",0.002039,0.028546
+wrong-saved-result-v5,1,signaled_error_restart:wrong_option,self-FP16,self-Q8,60,0.3833,0.4667,0.0833,"[-0.016667, 0.183333]",0.179688,1.0
+wrong-saved-result-v5,3,error_restart:violating_candidate,self-FP16,self-Q4,60,0.1667,0.2,0.0333,"[-0.05, 0.116667]",0.726562,1.0
+wrong-saved-result-v5,3,error_restart:violating_candidate,self-FP16,self-Q8,60,0.1667,0.15,-0.0167,"[-0.05, 0.0]",1.0,1.0
+wrong-saved-result-v5,3,error_restart:wrong_option,self-FP16,self-Q4,60,0.1667,0.2,0.0333,"[-0.05, 0.116667]",0.726562,1.0
+wrong-saved-result-v5,3,error_restart:wrong_option,self-FP16,self-Q8,60,0.1667,0.15,-0.0167,"[-0.05, 0.0]",1.0,1.0
+wrong-saved-result-v5,3,signaled_error_restart:violating_candidate,self-FP16,self-Q4,60,0.15,0.2,0.05,"[-0.05, 0.15]",0.507812,1.0
+wrong-saved-result-v5,3,signaled_error_restart:violating_candidate,self-FP16,self-Q8,60,0.15,0.15,0.0,"[-0.05, 0.05]",1.0,1.0
+wrong-saved-result-v5,3,signaled_error_restart:wrong_option,self-FP16,self-Q4,60,0.1667,0.1333,-0.0333,"[-0.15, 0.083333]",0.774414,1.0
+wrong-saved-result-v5,3,signaled_error_restart:wrong_option,self-FP16,self-Q8,60,0.1667,0.1167,-0.05,"[-0.116667, 0.0]",0.25,1.0

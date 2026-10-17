@@ -1,0 +1,17 @@
+[
+  {
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16.gguf",
+    "sha256": "f116fb8bb3237b7ee6acb2ea5058f4459ec6eb83f9bdbc890035935d45086a72",
+    "size_bytes": 4069679200
+  },
+  {
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16-Q8_0.gguf",
+    "sha256": "9860780f3a1fab1f8f909a1b549ea3e62c22d19ab1a492b3a1026b38c5bd3ec3",
+    "size_bytes": 2165039200
+  },
+  {
+    "path": "C:\\Users\\user\\projects\\OnDeviceAI\\models\\Qwen3-1.7B-f16-Q4_K_M.gguf",
+    "sha256": "a7f6720f68f4a4567ebf7e3257041dd0b72077b518efe56890aec3516b59b9de",
+    "size_bytes": 1282439264
+  }
+]

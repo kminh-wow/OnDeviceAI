@@ -1,0 +1,217 @@
+{
+  "valid": true,
+  "validator_version": "dataset-validator-v4",
+  "language": "en",
+  "dataset_version": "workflow-en-v4",
+  "dataset_sha256": "ca0947461818868d4ea5d1abba145eef65e786de7de7e07b286a3480089b8514",
+  "total": 300,
+  "by_task_type": {
+    "execution": 180,
+    "recovery": 120
+  },
+  "by_horizon": {
+    "1": 120,
+    "3": 120,
+    "5": 60
+  },
+  "by_task_type_horizon": {
+    "execution/h1": 60,
+    "execution/h3": 60,
+    "execution/h5": 60,
+    "recovery/h1": 60,
+    "recovery/h3": 60
+  },
+  "duplicate_ids": [],
+  "paired": true,
+  "errors": [],
+  "source_integrity": {
+    "matches_generators": true
+  },
+  "model_input_audit": {
+    "continuations_checked": 780,
+    "ascii_string_fields_checked": 223920
+  },
+  "condition_separation": {
+    "identical_free_normal_inputs_by_horizon": {
+      "1": 0,
+      "3": 0
+    },
+    "note": "matched free and normal_restart share the checkpoint state and differ only in delivery; h5 has no recovery fixture"
+  },
+  "execution_semantics": {
+    "valid": true,
+    "execution_tasks": 180,
+    "base_scenarios": 60,
+    "by_horizon": {
+      "1": 60,
+      "3": 60,
+      "5": 60
+    },
+    "by_domain": {
+      "place": 45,
+      "schedule": 45,
+      "shopping": 45,
+      "travel": 45
+    },
+    "checks": {
+      "adjacent_swaps": 360,
+      "durable_inspections": 180,
+      "gold_replays": 180,
+      "h1_wrong_draft_rejections": 120,
+      "legacy_mutation_rejections": 1080,
+      "matched_scenarios": 60,
+      "position_balance_groups": 16,
+      "proper_subsequences": 2340,
+      "unique_target_inference": 60,
+      "user_message_context": 180,
+      "violating_candidate_ranks_first": 60,
+      "wrong_choice_rejections": 300
+    },
+    "answer_positions": {
+      "place/h1_correct_draft": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "place/target_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "place/target_option": {
+        "0": 7,
+        "1": 8
+      },
+      "place/violating_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "schedule/h1_correct_draft": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "schedule/target_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "schedule/target_option": {
+        "0": 7,
+        "1": 8
+      },
+      "schedule/violating_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "shopping/h1_correct_draft": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "shopping/target_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "shopping/target_option": {
+        "0": 8,
+        "1": 7
+      },
+      "shopping/violating_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "travel/h1_correct_draft": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "travel/target_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      },
+      "travel/target_option": {
+        "0": 8,
+        "1": 7
+      },
+      "travel/violating_candidate": {
+        "0": 5,
+        "1": 5,
+        "2": 5
+      }
+    },
+    "validation_scope": "reference subsequences, prerequisite swaps, legacy mutations, wrong choices, and answer-position balance",
+    "limitations": [
+      "Not exhaustive search over arbitrary tool arguments or action sequences.",
+      "Horizon is remaining calls in a controlled five-resource workflow; earlier results are supplied in the user message.",
+      "Recovery tasks are outside this execution-v2 validation scope."
+    ]
+  },
+  "recovery_semantics": {
+    "valid": true,
+    "recovery_tasks": 120,
+    "base_scenarios": 60,
+    "error_kinds": [
+      "violating_candidate",
+      "wrong_option"
+    ],
+    "paired_conditions_per_model": 600,
+    "by_horizon": {
+      "1": 60,
+      "3": 60
+    },
+    "normal_remaining_calls": {
+      "1": 1,
+      "3": 3
+    },
+    "recovery_min_calls": {
+      "violating_candidate/h1": [
+        1
+      ],
+      "violating_candidate/h3": [
+        3
+      ],
+      "wrong_option/h1": [
+        1
+      ],
+      "wrong_option/h3": [
+        2
+      ]
+    },
+    "checks": {
+      "alternative_repairs": 240,
+      "common_checkpoint_and_visible_injection": 240,
+      "common_error_across_horizons": 120,
+      "deterministic_preparations": 240,
+      "distinct_model_inputs": 240,
+      "free_normal_information_parity": 120,
+      "matched_execution_pairs": 240,
+      "normal_oracle_replays": 120,
+      "proper_repair_subsequences": 720,
+      "repair_oracle_replays": 240,
+      "scripted_agent_continuations": 600,
+      "signaled_error_branches": 240,
+      "wrong_reconfirmation_rejections": 240
+    },
+    "validation_scope": "matched checkpoints, both error kinds, visible wrong continuations, exact saved-state grading, reference repair subsequences, and scripted continuations",
+    "limitations": [
+      "Not exhaustive search over arbitrary arguments, action sequences, or model policies.",
+      "Two error kinds of one mistake family (a wrong result saved for the requested ID); conclusions do not cover every agent failure type.",
+      "Recovery covers h1 and h3 only; h5 has no checkpoint history and is analyzed with free execution.",
+      "wrong_option at h3 needs 2 repair calls while violating_candidate needs 3; report recovery per error kind.",
+      "The injected continuation is supplied history rather than a naturally generated past session.",
+      "60 base scenarios, rather than 120 independent problems, form the matched experimental units.",
+      "signaled_error_restart adds one fixed audit notice; it is a control for the silent error, not a different error type."
+    ]
+  },
+  "limitations": [
+    "Bounded reference trajectory probes, not exhaustive search over all actions.",
+    "ASCII checks and canonical wording do not prove natural-language correctness; human review is still required."
+  ],
+  "tasks_file_sha256": "207053cd5678e934560522de687601a049b70551c00c3b52e3253e6327b12189"
+}
